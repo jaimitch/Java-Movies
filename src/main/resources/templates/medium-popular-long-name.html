@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Can't Call It</title>
 </head>
 <body>
-<h1>The Title of this page is long and confusing</h1>
+<h1>Most Popular Movies</h1>
+<div th:each="movies: ${movies}">
+    <div>
+        <img width="150px" th:src="@{'http://image.tmdb.org/t/p/original' + ${movies.posterPath}}"/>
+        <span th:text="${movies.title}"></span>
+        <span th:text="${movies.popularity}"></span>
+    </div>
+</div>
 </body>
 </html>
